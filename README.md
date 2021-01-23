@@ -29,7 +29,7 @@ Supports **currency** transformation (AKA *money*) based on [Number.prototype.to
 
     npm i @yaireo/react-number-input
 
-## Use (with currency)
+## Example usage (with currency)
 
 ```js
 <NumberInput localeOptions={{
@@ -46,8 +46,6 @@ Supports **currency** transformation (AKA *money*) based on [Number.prototype.to
 
 Prop                    | Type                      | Default     | Info
 ----------------------- | ------------------------- |:-----------:| -------------------------------------------------
-className               | `string`                  |             |
-style                   | `string`                  |             |
 placeholder             | `string`                  |             |
 name                    | `string`                  |             |
 inputMode               | `string`                  |`"decimal"`  | [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/inputmode)

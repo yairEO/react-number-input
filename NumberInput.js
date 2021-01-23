@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import {string, number, func, shape, oneOf, object} from 'prop-types'
 
-const NumberInput = ({ className, style, placeholder, name, inputMode, onChange, defaultValue, localeOptions }) => {
-  const [lastValue, setLastValue] = useState(defaultValue||'')
+const NumberInput = ({ className, style, placeholder, name, inputMode, onChange, onFocus, onBlur, defaultValue, localeOptions }) => {
+  const [lastValue, setLastValue] = useState(+defaultValue||'')
   const [value, setValue] = useState(+defaultValue||'')
   const [type, setType] = useState('number')
 
@@ -21,12 +21,14 @@ const NumberInput = ({ className, style, placeholder, name, inputMode, onChange,
     setValue( value == '' ? '' : (+value).toLocaleString(undefined, localeOptions) )
   }
 
-  function onFocus(e){
+  function onFocusLocal(e){
     textToNumber(e.target)
+    onFocus && onFocus(e)
   }
 
-  function onBlur(e){
+  function onBlurLocal(e){
     numberToText(e.target)
+    onBlur && onBlur(e)
   }
 
   function onChangeLocal(e){
@@ -42,8 +44,8 @@ const NumberInput = ({ className, style, placeholder, name, inputMode, onChange,
     inputMode={inputMode || 'decimal'}
     placeholder={placeholder}
     onChange={onChangeLocal}
-    onFocus={onFocus}
-    onBlur={onBlur} />
+    onFocus={onFocusLocal}
+    onBlur={onBlurLocal} />
 }
 
 NumberInput.propTypes = {
