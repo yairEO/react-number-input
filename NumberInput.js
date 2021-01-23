@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {string, number, func, shape, oneOf, object} from 'prop-types'
 
-const NumberInput = ({ className, style, placeholder, name, inputMode, onChange, onFocus, onBlur, defaultValue, localeOptions }) => {
+const NumberInput = ({ inputMode, onChange, onFocus, onBlur, defaultValue, localeOptions, ...rest }) => {
   const [lastValue, setLastValue] = useState(+defaultValue||'')
   const [value, setValue] = useState(+defaultValue||'')
   const [type, setType] = useState('number')
@@ -36,18 +36,14 @@ const NumberInput = ({ className, style, placeholder, name, inputMode, onChange,
     onChange && onChange(e)
   }
 
-  return <input className={className}
-    style={style}
+  return <input {...rest}
     type={type}
-    name={name}
     value={value}
     inputMode={inputMode || 'decimal'}
-    placeholder={placeholder}
     onChange={onChangeLocal}
     onFocus={onFocusLocal}
     onBlur={onBlurLocal} />
 }
-
 NumberInput.propTypes = {
   className    : string,
   placeholder  : string,
