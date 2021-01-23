@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import {string, number, func, shape, oneOf, object} from 'prop-types'
-import { cx } from 'utils'
 
 const NumberInput = ({ className, style, placeholder, name, inputMode, onChange, defaultValue, localeOptions }) => {
   const [lastValue, setLastValue] = useState(defaultValue||'')
@@ -35,7 +34,7 @@ const NumberInput = ({ className, style, placeholder, name, inputMode, onChange,
     onChange && onChange(e)
   }
 
-  return <input className={cx(className)}
+  return <input className={className}
     style={style}
     type={type}
     name={name}
