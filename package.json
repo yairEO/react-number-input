@@ -40,11 +40,11 @@
         "email": "vsync.design@gmail.com"
     },
     "main": "NumberInput.js",
-    "module": "NumberInput.min.js",
+    "module": "NumberInput.js",
     "files": [
-        "NumberInput.min.js.map",
-        "NumberInput.min.js",
-        "NumberInput.js"
+        "NumberInput.js.map",
+        "NumberInput.js",
+        "src/NumberInput.js"
     ],
     "repository": {
         "type": "git",
