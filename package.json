@@ -1,0 +1,68 @@
+{
+    "name": "@yaireo/react-number-input",
+    "version": "1.0.0",
+    "homepage": "https://yaireo.github.io/react-number-input",
+    "description": "",
+    "keywords": [
+        "color",
+        "colors",
+        "picker",
+        "javascript",
+        "component",
+        "lightweight"
+    ],
+    "license": "MIT",
+    "_npmUser": {
+        "name": "vsync",
+        "email": "vsync.design@gmail.com"
+    },
+    "browserslist": [
+        ">3% and ie 11",
+        "not dead",
+        "not ie < 11",
+        "not IE_Mob 11",
+        "not op_mini all"
+    ],
+    "np": {
+        "yarn": false,
+        "contents": "dist",
+        "yolo": true
+    },
+    "scripts": {
+        "start": "npm run build && npm run header",
+        "build": "babel NumberInput.js --out-file NumberInput.min.js --source-maps",
+        "header": "headr NumberInput.min.js -o=NumberInput.min.js --version --homepage",
+        "version": "npm run build && npm run header && git add .",
+        "prepublishOnly": "pkg-ok"
+    },
+    "author": {
+        "name": "Yair Even-Or",
+        "email": "vsync.design@gmail.com"
+    },
+    "main": "NumberInput.js",
+    "module": "NumberInput.min.js",
+    "files": [
+        "NumberInput.min.js.map",
+        "NumberInput.min.js",
+        "NumberInput.js"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yairEO/react-number-input.git"
+    },
+    "bugs": {
+        "url": "https://github.com/yaireo/react-number-input/issues"
+    },
+    "babel": {
+        "presets": ["@babel/preset-env", ["@babel/preset-react", {"runtime":"automatic"}]]
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.12.10",
+        "@babel/core": "^7.12.10",
+        "@babel/preset-env": "^7.12.11",
+        "@babel/preset-react": "^7.12.10",
+        "headr": "^0.0.4",
+        "prop-types": "^15.7.2",
+        "react": "^17.0.1"
+    }
+}
