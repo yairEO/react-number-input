@@ -27,18 +27,22 @@ Supports **currency** transformation (AKA *money*) based on [Number.prototype.to
 
 ## Install
 
-    npm i @yaireo/react-number-input
+    npm i @yaireo/react-number-input -s
 
 ## Example usage (with currency)
 
 ```js
-<NumberInput localeOptions={{
-  maximumFractionDigits:2,
-  currency:"USD",
-  style:"currency",
-  currencyDisplay:"symbol"
-  }}
-/>
+import NumberInput from '@yaireo/react-number-input'
+
+const MyComponent = () => (
+  <NumberInput localeOptions={{
+    maximumFractionDigits:2,
+    currency:"USD",
+    style:"currency",
+    currencyDisplay:"symbol"
+    }}
+  />
+)
 ```
 
 
