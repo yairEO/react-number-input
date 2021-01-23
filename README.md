@@ -32,7 +32,13 @@ Supports **currency** transformation (AKA *money*) based on [Number.prototype.to
 ## Use (with currency)
 
 ```js
-<NumberInput localeOptions={{ maximumFractionDigits:2, currency:"USD", style:"currency", currencyDisplay:"symbol" }} />
+<NumberInput localeOptions={{
+  maximumFractionDigits:2,
+  currency:"USD",
+  style:"currency",
+  currencyDisplay:"symbol"
+  }}
+/>
 ```
 
 
