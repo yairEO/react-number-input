@@ -30,8 +30,8 @@
     },
     "scripts": {
         "start": "npm run build && npm run header",
-        "build": "babel NumberInput.js --out-file NumberInput.min.js --source-maps",
-        "header": "headr NumberInput.min.js -o=NumberInput.min.js --version --homepage",
+        "build": "babel src/NumberInput.js --out-file NumberInput.js --source-maps",
+        "header": "headr NumberInput.js -o=NumberInput.js --version --homepage",
         "version": "npm run build && npm run header && git add .",
         "prepublishOnly": "pkg-ok"
     },
