@@ -1,7 +1,7 @@
 /**
   * @yaireo/react-number-input - 
   *
-  * @version v1.0.4
+  * @version v1.1.0
   * @homepage https://yaireo.github.io/react-number-input
   */
 
@@ -72,8 +72,17 @@ var NumberInput = function NumberInput(_ref) {
       type = _useState6[0],
       setType = _useState6[1];
 
+  var isMounted = (0, _react.useRef)();
+  var inputRef = (0, _react.useRef)(null);
+  (0, _react.useEffect)(function () {
+    if (isMounted.current) {
+      setValue(+defaultValue || '');
+      setLastValue(+defaultValue || '');
+    }
+  }, [defaultValue]);
   (0, _react.useEffect)(function () {
     numberToText();
+    isMounted.current = true;
   }, []);
 
   function textToNumber(field) {
@@ -97,12 +106,13 @@ var NumberInput = function NumberInput(_ref) {
     onBlur && onBlur(e);
   }
 
-  function onChangeLocal(e) {
-    setValue(e.target.value);
-    onChange && onChange(e);
+  function onChangeLocal() {
+    setValue(inputRef.current.value);
+    onChange && onChange(inputRef.current);
   }
 
   return /*#__PURE__*/(0, _jsxRuntime.jsx)("input", _objectSpread(_objectSpread({}, rest), {}, {
+    ref: inputRef,
     type: type,
     value: value,
     inputMode: inputMode || 'decimal',
