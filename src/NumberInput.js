@@ -1,13 +1,23 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import {string, number, func, shape, oneOf, object} from 'prop-types'
 
 const NumberInput = ({ inputMode, onChange, onFocus, onBlur, defaultValue, localeOptions, ...rest }) => {
   const [lastValue, setLastValue] = useState(+defaultValue||'')
   const [value, setValue] = useState(+defaultValue||'')
   const [type, setType] = useState('number')
+  const isMounted = useRef()
+  const inputRef = useRef(null)
+
+  useEffect(() => {
+    if( isMounted.current ){
+      setValue(+defaultValue||'')
+      setLastValue(+defaultValue||'')
+    }
+  }, [defaultValue])
 
   useEffect(() => {
     numberToText()
+    isMounted.current = true
   }, [])
 
   function textToNumber(field){
@@ -31,12 +41,13 @@ const NumberInput = ({ inputMode, onChange, onFocus, onBlur, defaultValue, local
     onBlur && onBlur(e)
   }
 
-  function onChangeLocal(e){
-    setValue(e.target.value)
-    onChange && onChange(e)
+  function onChangeLocal(){
+    setValue(inputRef.current.value)
+    onChange && onChange(inputRef.current)
   }
 
   return <input {...rest}
+    ref={inputRef}
     type={type}
     value={value}
     inputMode={inputMode || 'decimal'}
