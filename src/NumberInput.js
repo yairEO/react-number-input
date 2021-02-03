@@ -10,8 +10,7 @@ const NumberInput = ({ inputMode, onChange, onFocus, onBlur, defaultValue, local
 
   useEffect(() => {
     if( isMounted.current ){
-      setValue(+defaultValue||'')
-      setLastValue(+defaultValue||'')
+      numberToText(+defaultValue)
     }
   }, [defaultValue])
 
@@ -20,24 +19,24 @@ const NumberInput = ({ inputMode, onChange, onFocus, onBlur, defaultValue, local
     isMounted.current = true
   }, [])
 
-  function textToNumber(field){
+  function textToNumber(){
     setType('number')
     setValue(lastValue)
   }
 
-  function numberToText(field){
+  function numberToText( num = value ){
     setType('')
-    setLastValue(value)
-    setValue( value == '' ? '' : (+value).toLocaleString(undefined, localeOptions) )
+    setLastValue(num||'')
+    setValue( num == '' ? '' : (+num).toLocaleString(undefined, localeOptions) )
   }
 
   function onFocusLocal(e){
-    textToNumber(e.target)
+    textToNumber()
     onFocus && onFocus(e)
   }
 
   function onBlurLocal(e){
-    numberToText(e.target)
+    numberToText()
     onBlur && onBlur(e)
   }
 
