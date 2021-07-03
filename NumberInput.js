@@ -1,7 +1,7 @@
 /**
   * @yaireo/react-number-input - 
   *
-  * @version v1.1.1
+  * @version v2.0.0
   * @homepage https://yaireo.github.io/react-number-input
   */
 
