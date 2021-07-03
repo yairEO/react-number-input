@@ -19,11 +19,6 @@
     "browserslist": [
         ">1%"
     ],
-    "np": {
-        "yarn": false,
-        "contents": "dist",
-        "yolo": true
-    },
     "scripts": {
         "start": "npm run build && npm run header",
         "build": "babel src/NumberInput.js --out-file NumberInput.js --source-maps",
