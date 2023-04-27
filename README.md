@@ -1,5 +1,5 @@
 <p align="center">
-  <a href='https://yaireo.github.io/react-number-input/'>
+  <a href='https://codesandbox.io/s/yaireo-react-number-input-gghty4'>
     <img src="./demo.gif?sanitize=true" alt="converts input type number to locale string and back"/>
   </a>
 <p>
@@ -9,7 +9,6 @@
   <a href='https://www.npmjs.com/package/@yaireo/react-number-input'>
       <img src="https://badgen.net/npm/v/@yaireo/react-number-input" />
   </a>
-  <img src="https://badgen.net/bundlephobia/minzip/@yaireo/react-number-input" />
   <img src="https://badgen.net/npm/dw/@yaireo/react-number-input" />
 </p>
 
